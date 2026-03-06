@@ -4,7 +4,12 @@ const loadLessons=()=>{
     .then((json)=> displayLesson(json.data));
 };
 
-
+// Remove active
+const removeActive=()=>{
+    const lessonButtons=document.querySelectorAll(".lesson-btn")
+    // console.log(lessonButtons)
+    lessonButtons.forEach(btn=>btn.classList.remove("active"));
+}
 
 
 
@@ -17,7 +22,11 @@ const loadLevelWord=(id)=>{
     fetch(url)
     .then((res)=>res.json())
     .then((data)=>{
-        displayLevelWord(data.data)});
+       removeActive(); //Not clicked button inactive
+        const clickBtn=document.getElementById(`lesson-btn-${id}`)
+    //    console.log("clickBtn") 
+    clickBtn.classList.add("active") // Clicked button active
+       displayLevelWord(data.data)});
 
 };
 
@@ -50,10 +59,10 @@ const displayLevelWord=(words)=>{
     const card=document.createElement("div");
     card.innerHTML=`
     <div class="bg-white rounded-xl shadow-sm text-center py-10 px-5 space-y-2">
-    <h2 class="font-bold text-2xl">${word.word}</h2>
+    <h2 class="font-bold text-2xl">${word.word ? word.word:"শব্দ পাওয়া যায়নি"}</h2>
     <p class="font-semibold">Meaning / Pronunciation</p>
-    <div class="text-2xl font-medium font-bangla">${word.meaning} / 
-    ${word.pronunciation}</div>
+    <div class="text-2xl font-medium font-bangla">${word.meaning ? word.meaning :"অর্থ পাওয়া যায়নি"} / 
+    ${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায়নি" }</div>
     <div class="flex justify-between items-center">
         <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
         <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
@@ -75,8 +84,8 @@ for(let lesson of lessons) {
 console.log(lesson)
         // a) Create Element
 const btnDiv = document.createElement("div");
-btnDiv.innerHTML= `<button onclick="loadLevelWord
-(${lesson.level_no})"  class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i>Lesson - ${lesson.level_no}
+btnDiv.innerHTML= `<button id="lesson-btn-${lesson.level_no}" onclick="loadLevelWord
+(${lesson.level_no})"  class="btn btn-outline btn-primary lesson-btn"><i class="fa-solid fa-book-open"></i>Lesson - ${lesson.level_no}
 </button>`
 
         // b) Append into container
