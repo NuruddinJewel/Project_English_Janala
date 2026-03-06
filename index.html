@@ -94,6 +94,19 @@
         <!-- Linked with index.js this div tag -->
     </div>
 </section>
+
+<!-- Search Functionality -->
+<section class="flex justify-center">
+<div class="join">
+  <div>
+    <label class="input validator join-item">
+<input id="input-search" type="text" placeholder="Search Vocabulary" required />
+    </label>
+  </div>
+  <button id="btn-search" class="btn btn-primary join-item">Search</button>
+</div>
+</section>
+
 <!-- Loading -->
  <section id="spin" class="flex justify-center items-center py-8 hidden">
   <span class="loading loading-spinner text-success"></span>
@@ -119,6 +132,7 @@
  <!-- Open the modal using ID.showModal() method -->
 <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
 <!-- word_modal or wordModal (underscore or singleword) -->
+<section>
 <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <!-- <h3 class="text-lg font-bold">Hello!</h3>
@@ -153,6 +167,7 @@
     </div>
   </div>
 </dialog>
+</section>
 
 <script src="./script/index.js"></script>
 </body>
