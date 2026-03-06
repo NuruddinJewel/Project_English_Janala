@@ -3,6 +3,16 @@ const createElement=(arr)=>{
    return htmlElements.join(" ");
 }
 
+//Prononciation
+
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
+
+
 // For loading (spinner)
 const spinner=(status)=>{
     if(status==true){
@@ -119,7 +129,7 @@ return;
     ${word.pronunciation ? word.pronunciation : "উচ্চারণ পাওয়া যায়নি" }</div>
     <div class="flex justify-between items-center">
         <button onclick="loadWordDetail(${word.id})" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
-        <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
+        <button onclick=" pronounceWord('${word.word}')" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
     </div>
 </div>`;
     wordContainer.append(card);
