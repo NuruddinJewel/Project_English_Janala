@@ -69,8 +69,8 @@
 
 
     <!-- Login sections -->
-    
-    <fieldset class="fieldset bg-base-100  rounded-box w-lg  pt-9 space-y-2">
+    <div>
+    <fieldset class="fieldset bg-base-100  rounded-box w-lg  pt-9 space-y-2 grid grid-cols-3 md:grid-cols-3 lg:grid-cols-1">
   <!-- <legend class="fieldset-legend">Login</legend> -->
 
   <!-- <label class="label">Email</label> -->
@@ -81,6 +81,7 @@
 
   <button class="btn btn-outline btn-primary w-30 h-10">Get Started</button>
 </fieldset>
+</div>
 </div>
 <div class="image flex-1">
         <img src="./assets/hero-student.png" alt="">
@@ -93,13 +94,21 @@
         <!-- Linked with index.js this div tag -->
     </div>
 </section>
-<section id="word-container" class="bg-gray-100 p-10 w-11/12 mx-auto my-8 grid grid-cols-3 gap-5">
-<div class="bg-white rounded-xl shadow-sm text-center py-10 px-5">
-    <h2>Eager</h2>
-    <p>Meaning Pronounciation</p>
-    <div>"আগ্রহী / ইগার"</div>
+<section id="word-container" class="bg-gray-100 p-10 w-11/12 mx-auto my-8 grid grid-cols-1 lg:grid-cols-3 gap-5">
+<!-- Dynamically will be put in js 
+    <div class="bg-white rounded-xl shadow-sm text-center py-10 px-5 space-y-2">
+    <h2 class="font-bold text-2xl">Eager</h2>
+    <p class="font-semibold">Meaning Pronounciation</p>
+    <div class="text-2xl font-medium font-bangla">"আগ্রহী / ইগার"</div>
+    <div class="flex justify-between items-center">
+        <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-circle-info"></i></button>
+        <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF80]"><i class="fa-solid fa-volume-high"></i></button>
+    </div>
+</div> -->
+<div class="text-center col-span-full rounded py-8 space-y-4 font-bangla">
+    <p class="text-xl font-medium text-gray-500">আপনি এখনো কোন Lesson Select করেন নি</p>
+    <h2 class="font-bold text-3xl">একটি Lesson Select করুন।</h2>
 </div>
-
 </section>
 
 
